@@ -7,6 +7,67 @@
     <title>library-project</title>
   </head>
   <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <img class="book-icon" alt="logo" src="./src/assets/book.svg"></img>
+          <div class="header-text-wrapper">
+            <h1 class="header-heading">The Library</h1>
+            <p class="header-paragraph">Discover your next favorite book</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="search-section">
+      <div class="container">
+        <div class="search-section-content">
+          <div class="search-section-text-wrapper">
+            <h1 class="search-heading">Discover Your Next Great Read</h1>
+            <p class="search-paragraph">
+              Search millions of books, build your personal library, and never
+              lose track of what to read next.
+            </p>
+          </div>
+          <div class="search-btn-wrapper">
+            <div class="search-input-wrapper">
+              <div class="empty-search-error">! Please enter a book title</div>
+              <div class="length-search-error">! String length cannot be less than 3 characters</div> 
+              <img class="search-icon" alt="logo" src="./src/assets/search.svg"></img>
+              <input type="text" class="search-input" placeholder="Search for books by title or author...">
+            </div>
+            <button class="search-btn">Search</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="book-card-section">
+      <div class="container">
+        <div class="loader"></div>
+        <div class="book-section-content">
+          <div class="card-list-wrapper"></div>
+          <div class="favorite">
+            <div class="favorite-header">
+              <div class="favorite-header-content">
+                <div class="heart-icon-wrapper">
+                  <img class="heart-icon" src="./src/assets/heart.svg" alt="favorite">
+                </div>
+                <div class="favorite-header-text-wrapper">
+                  <h1 class="favorite-header-title">Favorities</h1>
+                  <p class="favorite-header-paragraph">3 books saved</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer-section">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-paragraph">Powered by Open Library</p>
+        </div>
+      </div>
+    </footer>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
