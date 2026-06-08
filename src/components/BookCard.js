@@ -1,7 +1,13 @@
+import { getFavorites } from "../utils/storage";
+
 export function BookCard({ title, author, coverId, bookId, publishYear }) {
   const coverUrl = coverId
     ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg`
     : null;
+
+    const favorites = getFavorites()
+    const isFavorite = favorites.some(b => b.id === bookId)
+
 
   return `
     <div class="book-card">
@@ -10,7 +16,7 @@ export function BookCard({ title, author, coverId, bookId, publishYear }) {
           ? `<img class="book-cover" src="${coverUrl}" alt="${title}">`
           : `<div class="book-cover-empty">No Cover</div>`
         }
-        <button class="favorite-btn" 
+        <button class="favorite-btn ${isFavorite ? 'active' : ''}"
           data-id="${bookId}" 
           data-title="${title}" 
           data-author="${author}" 
