@@ -42,3 +42,4 @@ library-project/
 │   └── utils/              # Helper functions and business logic
 │       ├── api.js              # Fetch requests to the Open Library API
 │       └── storage.js          # localStorage read/write for favorites
+│       └── debounce.js         # function that reduce number of user requests
