@@ -5,6 +5,8 @@ import { BookList } from "./components/BookList.js";
 import { saveFavorite, removeFavorite } from "./utils/storage.js";
 import { renderFavorites } from "./components/FavoriteBookList.js";
 
+import { debounce } from './utils/debounce.js'
+
 renderFavorites();
 
 const cardListWrapper = document.querySelector(".card-list-wrapper");
@@ -49,25 +51,29 @@ document.querySelector(".favorite-books").addEventListener("click", (e) => {
   renderFavorites();
 });
 
-searchBtn.addEventListener("click", async () => {
-  const query = searchInput.value.trim();
+const handleSearch = debounce(async () => {
+  const query = searchInput.value.trim()
+
   if (!query) {
-    emptyErrorElement.classList.add("active");
-    return;
+    emptyErrorElement.classList.remove('active')
+    lengthErrorElement.classList.remove('active')
+    cardListWrapper.innerHTML = ''
+    return
   }
-  emptyErrorElement.classList.remove("active");
 
   if (query.length < 3) {
-    lengthErrorElement.classList.add("active");
-    return;
+    lengthErrorElement.classList.add('active')
+    cardListWrapper.innerHTML = ''
+    return
   }
-  lengthErrorElement.classList.remove("active");
+  lengthErrorElement.classList.remove('active')
 
-  loader.classList.add("active");
-  cardListWrapper.innerHTML = "";
+  loader.classList.add('active')
+  cardListWrapper.innerHTML = ''
 
-  const books = await searchBooks(query);
-  loader.classList.remove("active");
+  const books = await searchBooks(query)
+  loader.classList.remove('active')
+  cardListWrapper.innerHTML = BookList(books)
+}, 600)
 
-  cardListWrapper.innerHTML = BookList(books);
-});
+searchInput.addEventListener('input', handleSearch)

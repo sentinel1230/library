@@ -1,3 +1,5 @@
+import heartIcon from "../assets/heart.svg";
+
 export function FavoriteBookCard({ id, title, author, cover }) {
   return `
     <div class="favorite-item" data-id="${id}">
@@ -9,7 +11,7 @@ export function FavoriteBookCard({ id, title, author, cover }) {
         <p class="favorite-item-title">${title}</p>
         <p class="favorite-item-author">${author}</p>
       </div>
-      <button class="favorite-remove-btn" data-id="${id}"><img src="/src/assets/heart.svg" alt="favorite"></button>
+      <button class="favorite-remove-btn" data-id="${id}"><img src="${heartIcon}" alt="favorite"></button>
     </div>
   `
 }

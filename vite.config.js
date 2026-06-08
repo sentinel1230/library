@@ -5,6 +5,7 @@ export default defineConfig({
     plugins: [
         cssInjectedByJsPlugin()
     ],
+    base: '/library/',
     build: {
         rollupOptions: {
             output: {

@@ -21,6 +21,9 @@ npm run build
 # Preview production build
 npm run preview
 
+# Deploy
+npm run deploy. Application available on https://sentinel1230.github.io/library/
+
 
 ## PROJECT STRUCTURE
 
